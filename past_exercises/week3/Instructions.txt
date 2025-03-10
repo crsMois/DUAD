@@ -1,0 +1,247 @@
+<aside>
+💡
+
+**Ejercicios**
+
+1. Cree diagramas de flujo de los [Ejercicios de Pseudocódigo](https://www.notion.so/Ejercicios-de-Pseudoc-digo-8626a7a9b3d54e5ca185e1b01aa3546f?pvs=21) previamente creados.
+
+#1 (semana 2) Precio Producto
+
+1. Definir precio_producto
+2. Definir precio_final
+3. precio_producto= 0
+4. precio_final= 0
+
+1. Mostrar “Por favor ingrese el precio del producto”
+2. Pedir precio_producto
+3. Si (precio_producto < 100) entonces
+    
+          precio_final= (precio_producto)-(precio_producto * 0.02)
+    
+    sino
+    
+    precio_final= (precio_producto)-(precio_producto * 0.10)
+    
+4. FinSi
+5. Mostrar “El precio final del producto con descuento es”
+6. Mostrar precio_final
+
+![#1 (semana 2) Precio Producto.png](attachment:3bb49740-7dc3-4293-9673-afca5edfb2a4:1_(semana_2)_Precio_Producto.png)
+
+#2 (semana 2) Tiempo en Segundos.png
+
+1. Definir tiempo_segundos
+2. Definir tiempo_restante_segundos
+3. tiempo_segundos = 0
+4. tiempo_restante_segundos= 0
+5. Mostrar “por favor ingrese el tiempo en segundos”
+6. Pedir tiempo_segundos 
+
+1. Si (tiempo_segundos  < 600 ) entonces:
+    
+          tiempo_restante_segundos= 600 - tiempo_segundos
+    
+    Sino
+    
+    Mostrar “Es mayor a 10 Minutos”
+    
+2. FinSi
+
+![#2 (semana 2) Tiempo en Segundos.png](attachment:79e84b4c-040a-4c25-bcec-fb9e6483544c:2_(semana_2)_Tiempo_en_Segundos.png)
+
+#3 (semana 2) Suma de numeros.png
+
+1. Definir numero
+2. Definir contador
+3. Definir sumatoria
+4. numero=0
+5. contador=1
+6. sumatoria=0
+
+1. Mostrar “Por favor digite un numero”
+2. Pedir numero
+
+1. Mientras que (contador ≤ numero) hacer:
+    
+          sumatoria=sumatoria + contador
+    
+    contador = contador + 1
+    
+2. FinMientras
+
+1. Mostrar “La sumas de los numero hasta el numero ingresado es:”
+2. Mostrar sumatoria
+
+![#3 (semana 2) Suma de numeros.png](attachment:1ee7c8a8-0978-417d-b209-65c872084ae0:3_(semana_2)_Suma_de_numeros.png)
+
+#1 Opcional-(semana 2) Ordene variables.png
+
+1. Definir `primero` 
+2. Definir `segundo`
+3. primero=0
+4. segundo=0
+5. numeroPivote=0
+
+1. Mostrar “Por favor ingrese el primer numero”
+2. Pedir primero
+3. Mostrar “Por favor ingrese el segundo numero”
+4. Pedir segundo
+
+1. Si (primero > segundo) entonces:
+    
+    numeroPivote=primero 
+    
+    primero =segundo
+    
+    segundo=numeroPivote
+    
+2. FinSi
+
+1. Mostrar “A:”
+2. Mostrar primero
+3. Mostrar “B:”
+4. Mostrar segundo
+
+![#1 Opcional-(semana 2) Ordene variables.png](attachment:fa393cb4-cf76-4757-9c82-9633f19c650b:1_Opcional-(semana_2)_Ordene_variables.png)
+
+#2 Opcional-(semana 2) Metros x Hora velocidad.png
+
+1. Definir velocidad_Km_Hr
+2. Definir velocidad_M_S
+3. velocidad_Km_Hr = 0
+4. velocidad_M_S = 0
+5. Mostrar “Ingrese los Kilometros x Hora” 
+6. Pedir velocidad_Km_Hr
+7. velocidad_M_S= (velocidad_Km_Hr * 1000) /3600 
+8. Mostrar “La velocidad en M/S es”
+9. Mostrar velocidad_M_S
+
+![#2 Opcional-(semana 2) Metros x Hora velocidad.png](attachment:166e7b2d-bbd0-4ab0-83d5-55fc9ede6bc8:2_Opcional-(semana_2)_Metros_x_Hora_velocidad.png)
+
+#3 Opcional-(semana 2) Cantidad de personas por sexo.png
+
+1. Definir cantidad_personas
+2. Definir sexo
+3. Definir cantidad_Mujeres
+4. Definir contador
+5. Definir porcentaje_Mujeres
+6. Definir porcentaje_Hombres
+
+1. cantidad_personas = 6
+2. sexo = 0
+3. cantidad_Mujeres = 0
+4. contador = 1
+5. porcentaje_Mujeres= 0
+6. porcentaje_Hombres= 0
+
+1. Mientras que (contador ≤ cantidad_personas) hacer:
+    
+    Mostrar “Ingrese sexo para persona #” 
+    
+    Mostrar contador
+    
+    Pedir sexo
+    
+    Si (sexo == 1)  entonces
+    
+    cantidad_Mujeres = cantidad_Mujeres + 1
+    
+    FinSi
+    
+    contador = contador + 1
+    
+2. FinMientras
+
+1. porcentaje_Mujeres = (cantidad_Mujeres * 100) / cantidad_personas
+2. porcentaje_Hombre = 100 - porcentaje_Mujeres
+
+1. Mostrar “Mujeres: ”
+2. Mostrar porcentaje_Mujeres
+3. Mostrar “Hombres: ”
+4. Mostrar porcentaje_Hombre
+
+![#3 Opcional-(semana 2) Cantidad de personas por sexo.png](attachment:fa48a3d8-91c0-4271-90db-49e711a5cc93:3_Opcional-(semana_2)_Cantidad_de_personas_por_sexo.png)
+
+1. Cree un diagrama de flujo que tenga un numero secreto del 1 al 10, y le pida al usuario adivinar ese número. El algoritmo no debe terminar hasta que el usuario adivine el numero.
+
+![#2 (semana 3) Adivine el numero.png](attachment:f4d112f9-d309-4fff-9eb9-bdaceb941b3d:2_(semana_3)_Adivine_el_numero.png)
+
+1. Cree un diagrama de flujo que pida 3 números al usuario. Si uno de esos números es 30, o si los 3 sumados dan 30, mostrar “*Correcto*”. Sino, mostrar “*incorrecto*”.
+    1. *Ejemplos*:
+        1. 23, 30, 768 → Correcto (hay un 30)
+        2. 10, 15, 5 → Correcto (10 + 15 + 5 = 30)
+        3. 35, 56, 2 → Incorrecto (no hay ningún 30, y la suma de ellos tampoco da 30)
+    
+    ![#3 (semana 3) Sumatoria de 30 .png](attachment:06844b3c-de30-4097-a8db-219fdc0edbb4:3_(semana_3)_Sumatoria_de_30_.png)
+    
+</aside>
+
+<aside>
+⭐ **Ejercicios Extra**
+
+1. Cree un diagrama de flujo que le pida 5 números al usuario y muestre el mayor.
+    1. *Ejemplos*:
+        1. 4, 76, 43, 6, 8 → 76
+        2. 1, 2, 3, 6, 7 → 7
+        3. 2132, 4355, 1132, 2323, 1214 → 4355
+
+![#1 Opcional-(semana 3) Numero Mayor .png](attachment:2bfcc7e9-b060-46fb-b433-89cedbd50635:1_Opcional-(semana_3)_Numero_Mayor_.png)
+
+1. Cree un diagrama de flujo que le pida un numero al usuario y muestre “*Fizz*” si es divisible entre 3, “*Buzz*” si es divisible entre 5, y “*FizzBuzz*” si es divisible entre ambos.
+    1. *Ejemplos*:
+        1. 33 → Fizz
+        2. 25 → Buzz
+        3. 30 → FizzBuzz
+
+![#2 Opcional-(semana 3) FizzBuzz .png](attachment:93faa934-ba97-4893-9147-3161ac04702d:2_Opcional-(semana_3)_FizzBuzz_.png)
+
+1. Cree un diagrama de flujo que le pida 100 números al usuario y muestre la suma de todos.
+
+![#3 Opcional-(semana 3) Sumatoria de 100 numeros .png](attachment:49657b87-05a7-4843-9669-2e10e870dd33:3_Opcional-(semana_3)_Sumatoria_de_100_numeros_.png)
+
+1. Cree un diagrama de flujo que le pida 100 números al usuario y muestre el mayor de todos.
+    1. *Ejemplos*:
+        1. 4, 76, 43, 6, 8 → 76
+
+![#4 Opcional-(semana 3) Numero mayor de 100 numeros .png](attachment:2df6eb2f-7492-498d-b932-f0a44d1ef250:4_Opcional-(semana_3)_Numero_mayor_de_100_numeros_.png)
+
+<aside>
+💡
+
+**Ejercicios**
+
+1. Use la función `print()` para mostrar distintos textos en pantalla.
+
+ano1 = 2025
+ano2=  1976
+
+print ("Si Ricardo nacio en el " + str(ano2) + ", entonces tiene " + str(ano1-ano2) + " an#os")
+
+1. Use la función `print()` para mostrar resultados de operaciones matemáticas básicas.
+    1. Por ejemplo:
+        1. 1 + 1 → 2
+        2. 90 + 430 → 520
+        3. 4 * 5 → 20
+
+num1 = 1
+num2=  1
+
+print ("La suma del numero " + str(num1) + " y numero " + str(num2) + " es " + str(num1+num2) )
+
+1. 90 + 430 → 520
+
+num1 = 90
+num2=  430
+
+print ("La suma del numero " + str(num1) + " y numero " + str(num2) + " es " + str(num1+num2) )
+
+1. 4 * 5 → 20
+
+num1 = 4
+num2=  5
+
+print ("La multiplicacion del numero " + str(num1) + " por el numero " + str(num2) + " es " + str(num1*num2) )
+
+</aside>
+
+</aside>

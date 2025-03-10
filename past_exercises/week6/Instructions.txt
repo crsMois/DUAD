@@ -1,0 +1,138 @@
+1. Cree dos funciones que impriman dos cosas distintas, y haga que la primera llame la segunda.
+
+```jsx
+def validate_if_adult(age):
+    return int(age) > 18
+
+def user_age():
+    age=input("please enter your age: ")
+    print (f'Adult: {validate_if_adult(age)}')
+
+user_age()
+
+```
+
+1. Experimente con el concepto de scope:
+    1. Intente accesar a una variable definida dentro de una función desde afuera.
+    2. Intente accesar a una variable global desde una función y cambiar su valor.
+
+```jsx
+current_year= 2027 
+
+def get_your_age():
+    born_year = 2015
+    current_year=2025
+    print(f"(INSIDE FUNCTION) you current age is {(current_year-born_year)}")
+
+get_your_age()
+
+print(f"(OUTSIDE FUNCTION) you current age is {(current_year-born_year)}")
+
+```
+
+1. Cree una función que retorne la suma de todos los números de una lista.
+    1. La función va a tener un parámetro (la lista) y retornar un numero (la suma de todos sus elementos).
+    2. [4, 6, 2, 29] → 41
+
+```jsx
+numbers = [4, 6, 2, 29]
+
+def sum_list(numbers_list):
+    summation = 0
+    for number in numbers_list:
+        summation = summation + number
+
+    return summation
+
+print(f"the summation of all number in the list above is: {sum_list(numbers)}") 
+```
+
+1. Cree una función que le de la vuelta a un string y lo retorne.
+    1. Esto ya lo hicimos en iterables.
+    2. “Hola mundo” → “odnum aloH”
+
+```jsx
+	
+my_string= "Hola mundo"
+
+def return_ordered_string(new_string):
+    my_ordered_string=""
+    for value in range (0,len(new_string)):
+        my_ordered_string = my_ordered_string + str(new_string[len(new_string)-value-1])
+        
+
+    return my_ordered_string
+
+print(return_ordered_string(my_string))
+```
+
+1. Cree una función que imprima el numero de mayúsculas y el numero de minúsculas en un string.
+    1. “I love Nación Sushi” → “There’s 3 upper cases and 13 lower cases”
+
+```jsx
+my_string="I love Nación Sushi"
+
+def get_upper_lower_case_from_string(new_string):
+    
+    upper_case_characters= 0
+    lower_case_characters= 0
+
+    for character in new_string:
+        if (character.isupper()):
+            upper_case_characters=upper_case_characters+ 1
+        elif(character.islower()):
+            lower_case_characters=lower_case_characters+ 1
+    return (f"There’s {upper_case_characters} upper cases and {lower_case_characters} lower cases")
+
+print(get_upper_lower_case_from_string(my_string))
+```
+
+1. Cree una función que acepte un string con palabras separadas por un guión y retorne un string igual pero ordenado alfabéticamente.
+    1. Hay que convertirlo a lista, ordenarlo, y convertirlo nuevamente a string.
+    2. “python-variable-funcion-computadora-monitor” → “computadora-funcion-monitor-python-variable”
+
+```jsx
+my_string="python-variable-funcion-computadora-monitor"
+
+def sort_string_elements(new_string):
+
+    my_string_list = new_string.split("-")
+    my_string_list.sort()
+    new_string= "-".join(my_string_list)
+
+    return new_string
+
+print(sort_string_elements(my_string))    
+```
+
+1. Cree una función que acepte una lista de números y retorne una lista con los números primos de la misma.
+    1. [1, 4, 6, 7, 13, 9, 67] → [7, 13, 67]
+    2. Tip 1: Investigue la logica matematica para averiguar si un numero es primo, y conviertala a codigo. No busque el codigo, eso no ayudaria.
+    3. *Tip 2: Aquí hay que hacer varias cosas (recorrer la lista, revisar si cada numero es primo, y agregarlo a otra lista). Así que lo mejor es agregar **otra función** para revisar si el numero es primo o no.*
+
+```jsx
+import math
+
+numbers_list = [1, 4, 6, 7, 13, 9, 67]
+
+def validate_if_prime(new_number):
+    root = 0
+    if ((new_number !=1) and (new_number %2 != 0) and new_number>0):
+        root=(math.ceil(math.sqrt(new_number)))
+        for index in range(2, root+1):
+            if (new_number % index ==0 ):
+                return False
+    else:
+        return False            
+    return True
+
+def create_list_prime_numbers(new_list_numbers):
+    list_primes=[]
+    for new_number in new_list_numbers:
+        if(validate_if_prime(new_number)):
+            list_primes.append(new_number)   
+    return list_primes
+
+print(create_list_prime_numbers(numbers_list))
+
+```

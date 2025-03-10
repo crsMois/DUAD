@@ -1,0 +1,72 @@
+1. Cree un algoritmo para ver un video en Youtube. Sea lo más especifico posible.
+
+Respuesta:
+
+1.  Inicio
+
+2. Si es laptop
+
+i. Abrir laptop
+
+sino
+
+ii. Conectar pantalla externa a la corriente
+
+ii. Conectar pantalla externa al computador
+iii. Encender pantalla externa
+
+3.  Presionar el boton de encendido del computador
+
+4.  Mientras el sistema no ha terminado de bootear 
+
+ i. Esperar a que termine de bootear 
+
+5.  Si el Guest OS cargo completamente
+
+i.  Buscar Chrome en el search del Guest OS
+
+ii. Ejecutar el navegador Chrome
+
+iii. El procesador ejecuta un nuevo proceso para la apertura del navegador
+
+6.  Si el proceso iniciado por el procesador y el navegador cargo completamente
+
+i. Escribir “[www.youtube.com](http://www.youtube.com/)” en el navegador
+
+ii. El navegador enviara una solicitud HTTP GET al servidor web de youtube.
+
+7.  Si el servidor esta disponible
+
+i. El servidor web de YouTube enviara una respuesta de disponibilidad del servicio con un POST en formato HTML con landing page 
+
+8.  Buscar video en YouTube
+
+i. Escribir el video deseado en el search de Youtube
+
+ii. Type Enter
+
+9.  Mientras existan videos con lo escrito
+
+i. Mostrar todos los videos disponibles con ese nombre escrito
+
+10.  Dar click en la caratula del video deseado
+
+11.  El servidor web de YouTube carga el video con una respuesta un POST en formato HTML con la opcion para dar play al video.
+
+12.  Dar click en play en el video
+
+13.  El servidor cargara en buffer el video que sera consumido por el cliente desde el propio buffer
+
+14.  Mientras el navegador este abierto
+
+i. El procesador enviara la instruccion a la tarjeta madre para que la tarjeta de video y sonido reproduzcan el video a la pantalla
+
+ii. Se mostrara el video en pantalla y se escuchara el audio del video en los parlantes
+
+15.  Si el navegador se ha cerrado
+
+i.  El proceso del navegador es destruido
+
+ii. El procesador enviara la instruccion a la tarjeta madre para que la tarjeta de video y sonido dejen de reproducir el video
+
+16.  Fin
