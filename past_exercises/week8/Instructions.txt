@@ -1,0 +1,396 @@
+**Manejo de Archivos**
+
+1. Cree un programa que lea nombres de canciones de un archivo (línea por línea) y guarde en otro archivo los mismos nombres ordenados alfabéticamente.
+
+**Archivo Origen:**
+
+[music.txt](attachment:ac8b6f10-f7d7-47a5-aefa-b2bba10fadc1:music.txt)
+
+```jsx
+
+def order_music_file(in_origin_file, in_origin_list):
+    with open(in_origin_file) as file:
+            for song in file.readlines():
+                in_origin_list.append(song)
+    in_origin_list.sort()
+    return in_origin_list
+
+def write_ordered_music_file(in_ordered_list):
+    with open("new_music.txt",'a') as file2:
+        for song2 in in_ordered_list:
+            file2.write(song2)
+
+def main():
+    ordered_list = []
+    origin_file="music.txt"
+    write_ordered_music_file(order_music_file(origin_file,ordered_list))
+
+main()
+```
+
+1. Lea sobre el resto de métodos de la clase File de Python [aquí](https://www.w3schools.com/python/python_ref_file.asp) y cree una tabla donde explique qué hace cada uno. **No necesita usar código para esto, es solo crear una tabla en Notion o Word.**
+    
+    
+    | Metodo  | Descripción |  |
+    | --- | --- | --- |
+    | `read()` | Lee y retorna todo el contenido del archivo |  |
+    | `readlines()` | Lee todo el contenido del archivo y retorna una lista con cada línea. |  |
+    | write() | Escribe contenidos en un archivo. |  |
+    | [close()](https://www.w3schools.com/python/ref_file_close.asp) | Cerrar el archivo |  |
+    | [readline()](https://www.w3schools.com/python/ref_file_readline.asp) | Retorna una línea del archivo |  |
+    | [seek()](https://www.w3schools.com/python/ref_file_seek.asp) | Cambiar la posición del archivo |  |
+    | [seekable()](https://www.w3schools.com/python/ref_file_seekable.asp) | validar si se permite cambiar la posición del archivo  |  |
+    | [tell()](https://www.w3schools.com/python/ref_file_tell.asp) | Retonar la posicion actual del archivo |  |
+    | [truncate()](https://www.w3schools.com/python/ref_file_truncate.asp) | Cambiar el tamano de un archivo |  |
+    | [writable()](https://www.w3schools.com/python/ref_file_writable.asp) | Validar si un archivo se puede escribir en el o no |  |
+    | [writelines()](https://www.w3schools.com/python/ref_file_writelines.asp) | Escribir una lista de strings a un archivo |  |
+    | [readable()](https://www.w3schools.com/python/ref_file_readable.asp) | Retornar si el file stream puede ser leido o no |  |
+    | [isatty()](https://www.w3schools.com/python/ref_file_isatty.asp) | Determinar si el file stream es interactivo o no |  |
+
+**Manejo de CSVs**
+
+Ejercicios
+
+-Cree un programa que me permita ingresar información de n cantidad de videojuegos y los guarde en un archivo csv.
+
+Debe incluir:
+
+-Nombre
+-Género
+-Desarrollador
+-Clasificación ESRB
+
+```jsx
+import csv
+import sys
+
+def menu_prompt():
+
+    print("1. Add new game to the list")
+    print("2. Exit program")
+
+    try:
+        user_option=int(input(f"\n Select one option from the list above:  "))
+        execute_user_option(user_option)
+    except ValueError as error:
+            print(f"\n\n Please insert a number({error})\n\n")
+            menu_prompt()
+
+def execute_user_option(user_option):
+    
+
+    if (user_option == 1):
+        try:
+            add_new_game_to_list(get_list())
+            menu_prompt()
+        except ValueError as error:
+            print(f"Please insert a number ({error})")
+            menu_prompt()
+    elif (user_option == 2):
+        try:
+            sys.exit()
+
+        except ValueError as error:
+            print(f"Please insert a number ({error})")
+            menu_prompt()          
+    else:
+        menu_prompt()
+
+def get_list():
+    
+    list_games = [
+        {
+            'name': 'Grand Theft Auto IV',
+            'gender': 'Accion',
+            'developer' : 'Rockstar Games',
+            'clasification': 'M',
+        }
+    ,
+        {
+            'name': 'The Elder Scrolls IV: Oblivion',
+            'gender': 'RPG',
+            'developer' : 'Bethesda',
+            'clasification': 'M',
+        }
+    ,
+        {
+            'name': 'Tony Hawks Pro Skater 2',
+            'gender': 'Deportes',
+            'developer' : 'Activision',
+            'clasification': 'T',
+        }    
+    ]
+
+    return list_games
+
+def add_new_game_to_list(list_games): 
+
+    dict_new_game =   {
+            'name': '',
+            'gender': '',
+            'developer' : '',
+            'clasification': '',
+        }  
+
+    while True:
+        try:
+            dict_new_game["name"]= input("Enter the game name: ")
+            break  
+        except Exception as error:
+            print(f"Please enter an correct value {error}...")
+
+    while True:
+        try:
+            dict_new_game["gender"]= input("Enter the Gender: ")
+            break  
+        except Exception as error:
+            print(f"Please enter an correct value {error}...")
+
+    while True:
+        try:
+            dict_new_game["developer"]= input("Enter the developer: ")
+            break  
+        except Exception as error:
+            print(f"Please enter an correct value {error}...")
+
+    while True:
+        try:
+            dict_new_game["clasification"]= input("Enter clasification: ")
+            break  
+        except Exception as error:
+            print(f"Please enter an correct value {error}...")   
+
+    list_games.append(dict_new_game)
+    create_games_file("Games.csv",list_games)
+        
+
+def create_games_file(in_file_to_create, data_list):
+    
+    with open(in_file_to_create,"w", newline='') as file:
+        writer = csv.DictWriter(file, data_list[0].keys())
+        writer.writeheader()
+        writer.writerows(data_list)
+        print("\n\n\n CSV file has been updated with the new game!!!!!! \n\n\n")
+
+def main():
+    menu_prompt()
+
+main()
+```
+
+-Lea sobre el resto de métodos del módulo csv aquí y cree una version alternativa del ejercicio de arriba que guarde el archivo separado por tabulaciones en vez de por comas.
+
+```jsx
+import csv
+import sys
+
+def menu_prompt():
+
+    print("1. Add new game to the list")
+    print("2. Exit program")
+
+    try:
+        user_option=int(input(f"\n Select one option from the list above:  "))
+        execute_user_option(user_option)
+    except ValueError as error:
+            print(f"\n\n Please insert a number({error})\n\n")
+            menu_prompt()
+
+def execute_user_option(user_option):
+    
+
+    if (user_option == 1):
+        try:
+            add_new_game_to_list(get_list())
+            menu_prompt()
+        except ValueError as error:
+            print(f"Please insert a number ({error})")
+            menu_prompt()
+    elif (user_option == 2):
+        try:
+            sys.exit()
+
+        except ValueError as error:
+            print(f"Please insert a number ({error})")
+            menu_prompt()          
+    else:
+        menu_prompt()
+
+def get_list():
+    
+    list_games = [
+        {
+            'name': 'Grand Theft Auto IV',
+            'gender': 'Accion',
+            'developer' : 'Rockstar Games',
+            'clasification': 'M',
+        }
+    ,
+        {
+            'name': 'The Elder Scrolls IV: Oblivion',
+            'gender': 'RPG',
+            'developer' : 'Bethesda',
+            'clasification': 'M',
+        }
+    ,
+        {
+            'name': 'Tony Hawks Pro Skater 2',
+            'gender': 'Deportes',
+            'developer' : 'Activision',
+            'clasification': 'T',
+        }    
+    ]
+
+    return list_games
+
+def add_new_game_to_list(list_games): 
+
+    dict_new_game =   {
+            'name': '',
+            'gender': '',
+            'developer' : '',
+            'clasification': '',
+        }  
+
+    while True:
+        try:
+            dict_new_game["name"]= input("Enter the game name: ")
+            break  
+        except Exception as error:
+            print(f"Please enter an correct value {error}...")
+
+    while True:
+        try:
+            dict_new_game["gender"]= input("Enter the Gender: ")
+            break  
+        except Exception as error:
+            print(f"Please enter an correct value {error}...")
+
+    while True:
+        try:
+            dict_new_game["developer"]= input("Enter the developer: ")
+            break  
+        except Exception as error:
+            print(f"Please enter an correct value {error}...")
+
+    while True:
+        try:
+            dict_new_game["clasification"]= input("Enter clasification: ")
+            break  
+        except Exception as error:
+            print(f"Please enter an correct value {error}...")   
+
+    list_games.append(dict_new_game)
+    create_games_file("Games.csv",list_games)
+        
+
+def create_games_file(in_file_to_create, data_list):
+    
+    with open(in_file_to_create,"w", newline='') as file:
+        writer = csv.DictWriter(file, data_list[0].keys(), delimiter=' ')
+        writer.writeheader()
+        writer.writerows(data_list)
+        print("\n\n\n CSV file has been updated with the new game!!!!!! \n\n\n")
+
+def main():
+    menu_prompt()
+
+main()
+```
+
+**Manejo de JSON**
+
+1. Investigue cómo leer y escribir archivos `JSON` en Python [aquí](https://www.w3schools.com/python/python_json.asp).
+2. Cree un programa que permita agregar un Pokémon nuevo al archivo de la lección de JSON ([Archivos JSON](https://www.notion.so/79f9758cb59d4452a9c8668efa25356c?pvs=21)).
+    1. Debe leer el archivo para importar los Pokémones existentes.
+    2. Luego debe pedir la información del Pokémon a agregar.
+    3. Finalmente debe guardar el nuevo Pokémon en el archivo.
+
+**Archivo origen:**
+
+[pokemon.json](attachment:d1073114-b7eb-4f65-b7f7-9187b2e0cd38:pokemon.json)
+
+```jsx
+import json
+
+def ask_user_add_new_pokemon():
+    new_pokemon_dict = {
+        "name": {"english": ""},
+        "type": [""],
+        "base": {"HP": 0, 
+                "Attack": 0, 
+                "Defense": 0, 
+                "Sp. Attack": 0, 
+                "Sp. Defense": 0, 
+                "Speed": 0}
+    }
+
+    new_pokemon_dict["name"]["english"] = input("Please enter the new Pokemon name: ")
+    new_pokemon_dict["type"][0]= input("What is the Type of this Pokemon: ")
+    
+    while True:
+        try:
+            new_pokemon_dict["base"]["HP"]= int(input("Type the HP: "))
+            break  
+        except ValueError:
+            print("Please enter an Integer Value...")
+
+    while True:
+        try:
+            new_pokemon_dict["base"]["Attack"]= int(input("Type the Attack: "))
+            break  
+        except ValueError:
+            print("Please enter an Integer Value...")
+
+    while True:
+        try:
+            new_pokemon_dict["base"]["Defense"]= int(input("Type the Defense: "))
+            break  
+        except ValueError:
+            print("Please enter an Integer Value...")
+
+    
+    while True:
+            try:
+                new_pokemon_dict["base"]["Sp. Attack"]= int(input("Type the Sp. Attack: "))
+                break  
+            except ValueError:
+                print("Please enter an Integer Value...")
+        
+    while True:
+            try:
+                new_pokemon_dict["base"]["Sp. Defense"]= int(input("Type the Sp. Defense: "))
+                break  
+            except ValueError:
+                print("Please enter an Integer Value...")
+            
+    while True:
+            try:
+                new_pokemon_dict["base"]["Speed"]= int(input("Type the Speed: "))
+                break  
+            except ValueError:
+                print("Please enter an Integer Value...")
+
+    return new_pokemon_dict
+
+def open_pokemon_json_file(pokemon_json_file):
+    with open(pokemon_json_file,"r") as pokemon_read_file:
+        list_pokemons_py=json.load(pokemon_read_file)
+        
+        return list_pokemons_py
+
+def add_new_pokemon_to_file(list_of_all_pokemon, new_pokemon, pokemon_file):
+    list_of_all_pokemon.append(new_pokemon)
+
+    with open(pokemon_file, "w") as pokemon_write_file:
+        json.dump(list_of_all_pokemon,pokemon_write_file)
+
+def main():
+
+    pokemon_file="pokemon.json"
+    list_pokemon_from_json=open_pokemon_json_file(pokemon_file)
+    dict_new_pokemon= ask_user_add_new_pokemon()
+    add_new_pokemon_to_file(list_pokemon_from_json,dict_new_pokemon,pokemon_file)
+
+main()
+```

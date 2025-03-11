@@ -1,0 +1,45 @@
+1. Cree un algoritmo que describa su rutina diaria. Use condiciones, condiciones multiples y ciclos.
+
+ Respuesta:
+
+1.  Mientras sea fin de semana y es antes de las 9am o es dia de semana y es antes de las 7:00am
+       i. seguir durmiendo
+
+2. Levantarme
+
+3. Banarme
+
+i. Lavar cabello
+  a. si es Martes o es Jueves o es Sabado
+    1. lavar cabello
+
+    2. Aplicar agua y jabon a todo el cuerpo
+    3. Secarme del bano
+
+3.  Desayunar
+
+i. Si tengo hambre
+   a. Servir desayuno
+   b. Comer desayuno
+
+4.  Mientras sea despues de las 9:00am y antes de las 5:00pm
+       i. Revisar correos y pendientes
+
+Si hay pendientes
+       i. Ejecutar tareas pendientes
+
+Si son las 12:00pm y hay para cocinar
+       i. Cocinar
+       i.i Comer almuerzo
+sino si son las 12:00pm
+       i. Pedir comer en una aplicacion de delivery
+       i.i. Comer almuerzo
+
+5.  Si son las 6:00pm
+       i. Cenar
+
+6.  Si son las 7:00pm
+      i. Estudiar programacion
+
+7.  Si son las 10:00pm
+      i. Dormir

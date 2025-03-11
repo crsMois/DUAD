@@ -1,0 +1,298 @@
+<aside>
+💡
+
+**Ejercicios**
+
+**Para estos ejercicios debe utilizar solo lo visto en clase. No es valido utilizar funciones como `zip` o `reversed`.**
+
+1. Cree un programa que itere e imprima los valores de dos listas del mismo tamaño al mismo tiempo.
+    1. Ejemplos:
+    2. `first_list = [’Hay’, ‘en’, ‘que’, ‘iteracion’, ‘indices’, ‘muy’]`
+    `second_list = [’casos’, 'los’, ‘la’, ‘por’, ‘es’, ‘util’]` ->
+    Hay casos
+    en los
+    que la
+    iteracion por
+    indice es
+    muy util
+
+```jsx
+
+first_list = ["Hay", "en", "que", "iteracion", "indices", "muy"]
+second_list = ["casos", "los", "la", "por", "es", "util"]
+
+for value in range (0, len(first_list)):
+    print (first_list[value])
+    print (second_list[value])
+
+```
+
+1. Cree un programa que itere e imprima un string letra por letra de derecha a izquierda.
+2. Pista: investigue de que otras maneras se puede usar el `range`.
+3. Ejemplos:
+4. `my_string = ‘Pizza con piña’` → 
+a
+ñ
+i
+p
+
+n
+o
+c
+
+a
+z
+z
+i
+p
+
+```jsx
+my_string = "Pizza con piña"
+
+for value in range (0,len(my_string)):
+    print (my_string[len(my_string)-value-1])
+
+```
+
+1. Cree un programa que intercambie el primer y ultimo elemento de una lista. Debe funcionar con listas de cualquier tamaño.
+    1. Ejemplos:
+    2. `my_list = [4, 3, 6, 1, 7]` → `[7, 3, 6, 1, 4]`
+
+```jsx
+my_list = [3, 4, 3, 6, 1, 7, 5, 8]
+pivot = my_list[0]
+my_list[0]= my_list[len(my_list)-1] 
+my_list[len(my_list)-1] = pivot
+
+print ("updated list: ")
+print (my_list)    
+
+```
+
+1. Cree un programa que elimine todos los números impares de una lista.
+    1. Ejemplos:
+    2. `my_list = [1, 2, 3, 4, 5, 6, 7, 8, 9]` → `[2, 4, 6, 8]`
+
+```jsx
+	
+my_list = [1, 2, 3, 4, 5, 6, 7, 8, 9,11,11,11,11,11,11]
+counter = 0
+
+for counter in range(len(my_list)-1,-1,-1):
+    if (my_list[counter]%2!=0):
+        my_list.pop(counter)
+
+print(my_list)
+
+```
+
+1. Cree un programa que le pida al usuario 10 números, y al final le muestre todos los números que ingresó, seguido del numero ingresado más alto.
+    1. Ejemplos:
+    2. 86, 54, 23, 54, 67, 21, 2, 65, 10, 32 → [54, 86, 23, 54, 67, 21, 2, 65, 10, 32]. El más alto fue 86.
+    3. 
+    
+    ```jsx
+    hight_number = 0
+    numbers = []
+    
+    for index in range(0,10):
+        user_number=input("please enter number "+ str(index+1) + ": ")
+        numbers.append(int(user_number))
+    
+    for key in range(0,len(numbers)):
+        if (numbers[key]> hight_number):
+            hight_number= numbers[key]
+    
+    print (numbers)
+    print ("The highest number is: " + str(hight_number)  )
+    ```
+    
+</aside>
+
+<aside>
+💪🏽 **Ejercicios**
+
+1. Cree un diccionario que guarde la siguiente información sobre un hotel:
+    - `nombre`
+    - `numero_de_estrellas`
+    - `habitaciones`
+- El value del key de `habitaciones` debe ser una lista, y cada habitación debe tener la siguiente información:
+    - `numero`
+    - `piso`
+    - `precio_por_noche`
+    - 
+    
+    ```jsx
+    hotel = {
+    
+        "name" : "Luxury hotel",
+        "stars" :  5,
+        "rooms" : [
+            {
+            "number" : "1",
+            "floor" : "1" ,
+            "price_for_night" : 15,
+            }
+            ,
+            {
+            "number" : "2",
+            "floor" : "1" ,
+            "price_for_night" : 35,
+            }
+            ,
+            {
+            "number" : "3",
+            "floor" : "1" ,
+            "price_for_night" : 185,
+            }
+        ]
+    
+    }
+    
+    print (hotel["rooms"][2]["price_for_night"])
+    
+    ```
+    
+1. Cree un programa que cree un diccionario usando dos listas del mismo tamaño, usando una para sus keys, y la otra para sus values.
+    1. Ejemplos:
+    2. `list_a = [’first_name’, ‘last_name’, ‘role’]`
+    `list_b = [’Alek’, ‘Castillo’, ‘Software Engineer’]`
+    → `{’first_name’: ‘Alek’, ‘last_name’: ‘Castillo’, ‘role’: ‘Software Engineer’}`
+    3. 
+    
+    ```jsx
+    
+    list_a = ["first_name", "last_name", "role"]
+    list_b = ["Moises", "Bonilla", "Software Engineer"]
+    
+    profesional = {
+    
+    list_a [0] : list_b [0],
+    list_a [1] : list_b [1],
+    list_a [2] : list_b [2],
+    
+    }
+    
+    for key, value in profesional.items():
+        print( key + ":" +value )
+          
+    ```
+    
+2. Cree un programa que use una lista para eliminar keys de un diccionario.
+    1. Ejemplos:
+    2. `list_of_keys = [’access_level’, ‘age’]`
+    `employee = {’name’: ‘John’, ‘email’: ‘john@ecorp.com’, ‘access_level’: 5, ‘age’: 28}`
+    → `{’name’: ‘John’, 'email’: ‘john@ecorp.com’}`
+    3. 
+    
+    ```jsx
+    list_of_keys = ["access_level", "age"]
+    employee = {"name": "John", "email": "john@ecorp.com", "access_level": 5, "age": 28}
+    
+    for list_key, value_list in enumerate(list_of_keys):
+        deleted_item= employee.pop(value_list)
+        print ("Deleted item from the list: " + str(deleted_item))
+    
+    print ("Updated list: ")
+    print (employee)
+    
+    ```
+    
+</aside>
+
+<aside>
+⭐ Ejercicios Extra
+
+1. Dada una lista de ventas con la siguiente información:
+`date`
+`customer_email`
+`items`
+Y cada item teniendo la siguiente información:
+`name`
+`upc`
+`unit_price`
+Cree un diccionario que guarde el total de ventas de cada UPC.
+    1. Ejemplos:
+        
+        ```python
+        sales = [
+        	{
+        		'date': '27/02/23',
+        		'customer_email': 'joe@gmail.com',
+        		'items': [
+        			{
+        				'name': 'Lava Lamp',
+        				'upc': 'ITEM-453',
+        				'unit_price': 65.76,
+        			},
+        			{
+        				'name': 'Iron',
+        				'upc': 'ITEM-324',
+        				'unit_price': 32.45,
+        			},
+        			{
+        				'name': 'Basketball',
+        				'upc': 'ITEM-432',
+        				'unit_price': 12.54,
+        			},
+        		],
+        	},
+        	{
+        		'date': '27/02/23',
+        		'customer_email': 'david@gmail.com',
+        		'items': [
+        			{
+        				'name': 'Lava Lamp',
+        				'upc': 'ITEM-453',
+        				'unit_price': 65.76,
+        			},
+        			{
+        				'name': 'Key Holder',
+        				'upc': 'ITEM-23',
+        				'unit_price': 5.42,
+        			},
+        		],
+        	},
+        	{
+        		'date': '26/02/23',
+        		'customer_email': 'amanda@gmail.com',
+        		'items': [
+        			{
+        				'name': 'Key Holder',
+        				'upc': 'ITEM-23',
+        				'unit_price': 3.42,
+        			},
+        			{
+        				'name': 'Basketball',
+        				'upc': 'ITEM-432',
+        				'unit_price': 17.54,
+        			},
+        		],
+        	},
+        ]
+        
+        products = ["ITEM-453","ITEM-324","ITEM-432","ITEM-23"]
+        
+        result = {
+        	'ITEM-453': 0,
+        	'ITEM-324': 0,
+        	'ITEM-432': 0,
+        	'ITEM-23': 0,
+        }
+        
+        for key_final_result , value_final_result in result.items():
+        
+            for key_sales_list in range(0,len(sales)):
+               
+                for key_item_list, value in enumerate(sales[key_sales_list]["items"]):
+                   
+                    if (sales[key_sales_list]["items"][key_item_list]["upc"]==key_final_result):
+        
+                        result[sales[key_sales_list]["items"][key_item_list]["upc"] ] = result[sales[key_sales_list]["items"][key_item_list]["upc"]] + sales[key_sales_list]["items"][key_item_list]["unit_price"]
+        
+        print ("The total sales for each UPC is: ")
+        print (result)
+        
+        ```
+        
+</aside>
