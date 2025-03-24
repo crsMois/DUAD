@@ -1,8 +1,11 @@
-
 from menu import menu_prompt
+from data import open_source_students_csv
+
 
 def main():
-    menu_prompt()
+    source_csv = "Student.csv"
+    source_csv_file_list=open_source_students_csv(source_csv)
+    menu_prompt(source_csv_file_list)
 
 main()
 
