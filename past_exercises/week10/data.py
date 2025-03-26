@@ -35,3 +35,4 @@ def write_student_file(in_file_to_create, data_list):
         writer = csv.DictWriter(file, students_dict.keys())
         writer.writeheader()
         writer.writerows(data_list)
+        print("Succesfully exported to Students CSV file")

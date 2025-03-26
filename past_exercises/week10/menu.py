@@ -1,4 +1,4 @@
-from actions import add_new_student, get_top_3_students, get_group_average_grade , get_all_students
+from actions import add_new_student, get_top_3_students, get_group_average_grade , get_all_students, export_students_list_to_file
 from data import open_source_students_csv
 
 def menu_prompt(dict_list_on_memory):
@@ -7,7 +7,8 @@ def menu_prompt(dict_list_on_memory):
     print("2. View information on all enrolled students")
     print("3. Show Top 3 students")
     print("4. Show the group's overall average grade")
-    print("5. Salir\n\n")
+    print("5. Export list to CSV \n\n")
+    print("6. Salir\n\n")
 
     source_csv = "Student.csv"
     client_option=input (f"\n Select one of the options from the list above:  ")
@@ -82,9 +83,13 @@ def user_chosen_menu_option(user_option,source_csv_file_list,source_csv):
 
 
     if(user_option==5):
-        exit()
+        export_students_list_to_file(source_csv,source_csv_file_list)
         menu_prompt(source_csv_file_list)
 
+
+    if(user_option==6):
+        exit()
+        menu_prompt(source_csv_file_list)
 
     print(f"Please enter an correct menu value, a Number between 1-5 ...")
     menu_prompt(source_csv_file_list)

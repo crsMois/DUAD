@@ -92,10 +92,14 @@ def add_new_student(source_students_csv):
 
 #WRITING THE FILE (DATA FUNCTION) TO THE CSV FILE AND THE NEW LIST WITH THE NEW ELEMENT (DICTIONARY)
 
-    write_student_file(source_students_csv,converted_source_list) 
+    #write_student_file(source_students_csv,converted_source_list) 
 
     return converted_source_list
 
+
+
+def export_students_list_to_file(source_students_csv,source_memory_list):
+    write_student_file(source_students_csv,source_memory_list) 
 
 
 
