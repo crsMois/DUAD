@@ -1,7 +1,7 @@
 import csv
 from data import open_source_students_csv, write_student_file
 
-def add_new_student(source_students_csv):
+def add_new_student(source_students_csv,source_students_list):
         
     dict_new_student =   {
 		'name': '',
@@ -86,21 +86,21 @@ def add_new_student(source_students_csv):
 # CALCULATING THE AVERAGE AT ONCE AND MAKING PERSISTENT(SENDING IT TO FILE) TO OPTIMIZE MEMORY AND CPU UTILIZATION
 
     dict_new_student["average"] = float((dict_new_student["spanish"] + dict_new_student["english"] + dict_new_student["social"] + dict_new_student["science"])/4)
-
-    converted_source_list=list(open_source_students_csv(source_students_csv))
-    converted_source_list.append(dict_new_student)
+    source_students_list.append(dict_new_student)
 
 #WRITING THE FILE (DATA FUNCTION) TO THE CSV FILE AND THE NEW LIST WITH THE NEW ELEMENT (DICTIONARY)
 
-    #write_student_file(source_students_csv,converted_source_list) 
-
-    return converted_source_list
-
+    return source_students_list
 
 
 def export_students_list_to_file(source_students_csv,source_memory_list):
     write_student_file(source_students_csv,source_memory_list) 
 
+
+def import_students_from_csv_file(source_csv):
+    source_csv_file_list=open_source_students_csv(source_csv)
+    print("\n\n List of students has been imported to the system!!!! \n\n")
+    return source_csv_file_list
 
 
 def get_top_3_students(source_students_list):
@@ -114,9 +114,24 @@ def get_top_3_students(source_students_list):
     ordered_student_list=sorted(source_students_list, key=lambda x: x['average'], reverse=True)
     top_3_students_list = []
 
-    top_3_students_list.append(ordered_student_list[0])
-    top_3_students_list.append(ordered_student_list[1])
-    top_3_students_list.append(ordered_student_list[2])
+    try:
+        top_3_students_list.append(ordered_student_list[0])
+    except IndexError:
+        print("\n\n The list is empty, need to add new students \n\n")
+    
+    try:
+        top_3_students_list.append(ordered_student_list[1])
+    except IndexError:
+        if (len(top_3_students_list)==1):
+            print("The list just have 1 Student added")
+
+    try:
+        top_3_students_list.append(ordered_student_list[2])
+    except IndexError:
+        if (len(top_3_students_list)==2):
+            print("The list just have 2 Students added")
+        
+
 
     return top_3_students_list
 
@@ -139,7 +154,11 @@ def get_group_average_grade(source_students_list):
 
     for item in source_students_list:
         sum_of_avg= sum_of_avg+float(item["average"])
-
-    total_avg=sum_of_avg/len(source_students_list)
-
+    try:
+        total_avg=sum_of_avg/len(source_students_list)
+    except ZeroDivisionError:
+        print("\n\n There is no Students in the list , no average group grade to calculate")
+        total_avg=0
+    
+    
     return total_avg

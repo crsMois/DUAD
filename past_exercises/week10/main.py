@@ -3,8 +3,7 @@ from data import open_source_students_csv
 
 
 def main():
-    source_csv = "Student.csv"
-    source_csv_file_list=open_source_students_csv(source_csv)
+    source_csv_file_list=[]
     menu_prompt(source_csv_file_list)
 
 main()

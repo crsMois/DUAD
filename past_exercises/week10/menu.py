@@ -1,4 +1,4 @@
-from actions import add_new_student, get_top_3_students, get_group_average_grade , get_all_students, export_students_list_to_file
+from actions import add_new_student, get_top_3_students, get_group_average_grade , get_all_students, export_students_list_to_file, import_students_from_csv_file
 from data import open_source_students_csv
 
 def menu_prompt(dict_list_on_memory):
@@ -7,8 +7,9 @@ def menu_prompt(dict_list_on_memory):
     print("2. View information on all enrolled students")
     print("3. Show Top 3 students")
     print("4. Show the group's overall average grade")
-    print("5. Export list to CSV \n\n")
-    print("6. Salir\n\n")
+    print("5. Export list to CSV")
+    print("6. Import CSV file")
+    print("7. Exit\n\n")
 
     source_csv = "Student.csv"
     client_option=input (f"\n Select one of the options from the list above:  ")
@@ -25,7 +26,7 @@ def user_chosen_menu_option(user_option,source_csv_file_list,source_csv):
     user_option=int(user_option)
     
     if(user_option==1):
-        updated_list=add_new_student(source_csv)
+        updated_list=add_new_student(source_csv,source_csv_file_list)
         menu_prompt(updated_list)
 
     if(user_option==2):
@@ -86,8 +87,11 @@ def user_chosen_menu_option(user_option,source_csv_file_list,source_csv):
         export_students_list_to_file(source_csv,source_csv_file_list)
         menu_prompt(source_csv_file_list)
 
-
     if(user_option==6):
+        imported_list_from_csv=import_students_from_csv_file(source_csv)
+        menu_prompt(imported_list_from_csv)
+
+    if(user_option==7):
         exit()
         menu_prompt(source_csv_file_list)
 

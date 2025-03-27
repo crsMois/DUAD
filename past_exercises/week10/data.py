@@ -8,7 +8,7 @@ def open_source_students_csv(source_students_csv):
             list_students_py=list(csv.DictReader(student_read_file))
             
     except FileNotFoundError as error:    
-            print(f"\n\n\n The Student FILE does not exist, creating a new FILE !!!!!! \n\n\n")
+            print(f"\n\n\n The Student FILE does not exist, creating a new empty FILE !!!!!! \n\n\n")
             write_student_file(source_students_csv,list_students_py)
             open_source_students_csv(source_students_csv)
 
