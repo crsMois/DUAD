@@ -7,18 +7,17 @@ class Hand:
         pass
 
 class Arm:
-    def __init__(self,righ_hand , left_hand):
-        self.righ_hand = righ_hand
-        self.left_hand =left_hand
+    def __init__(self,hand):
+        self.hand = hand
+
 
 class Feet:
     def __init__(self):
         pass
 
 class Leg:
-    def __init__(self, right_feet, left_feet):
-        self.right_feet = right_feet
-        self.left_feet = left_feet
+    def __init__(self, feet):
+        self.feet = feet
 
 class Torso():
     def __init__(self,head, right_arm, left_arm, right_leg, left_leg):

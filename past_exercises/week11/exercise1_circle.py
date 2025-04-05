@@ -1,6 +1,8 @@
+import math
+
 class circle:
     radius=0
-    pi=3.1416
+    pi=math.pi
     
     
     def __init__(self, radius):

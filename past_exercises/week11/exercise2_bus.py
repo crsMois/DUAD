@@ -8,7 +8,7 @@ class Person:
 class Bus ():
     
     def __init__(self):
-        self.max_passengers=2
+        self.max_passengers=10
         self.list_of_passengers= []
     
     def add_passenger(self,passenger): 
@@ -18,8 +18,12 @@ class Bus ():
             print("You have reach the max of passengers")
 
     def get_off_passenger(self, passenger):
-        self.list_of_passengers.remove(passenger)
-        print(f"\n\nNew list after the passenger {passenger.name} gets off")
+        try:
+            self.list_of_passengers.remove(passenger)
+            print(f"\n\nNew list after the passenger {passenger.name} gets off")
+        except ValueError as error:
+            print(f"The passenger is not on the bus, he cannot get off. {error}...")
+            
 
     def get_list_passenger(self):
         return self.list_of_passengers
@@ -40,9 +44,9 @@ def main():
     bus1.add_passenger(person2)
     bus1.add_passenger(person3)
     bus1.print_current_list_of_passengers()
-    bus1.add_passenger(person2)
+    bus1.get_off_passenger(person2)
+    bus1.get_off_passenger(person2)
 
-#    bus1.get_off_passenger(person2)
     bus1.print_current_list_of_passengers()
 
 
