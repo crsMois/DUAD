@@ -1,27 +1,28 @@
 from abc import ABC, abstractmethod
+import math
 
 class Shape(ABC):
 
-    area=0
-    perimeter=0
+    def __init__(self):
+        self.area=0
+        self.perimeter=0
 
     @abstractmethod
-    def calculate_perimeter():
+    def calculate_perimeter(self):
         pass
 
     @abstractmethod
-    def calculate_area():
+    def calculate_area(self):
         pass
 
 
 class Circle(Shape):
     
-    circle_pi=3.14159
-    radius=0
 
     def __init__(self,radius):
         self.radius=radius
-
+        self.circle_pi=math.pi
+        
     def calculate_area(self):
         self.area=self.circle_pi*(self.radius**2)
         return self.area
@@ -33,7 +34,6 @@ class Circle(Shape):
 
 class Square(Shape):
 
-    side=0
 
     def __init__(self,side):
         self.side=side
@@ -48,9 +48,6 @@ class Square(Shape):
 
 
 class Rectangle(Shape):
-
-    length=0
-    width=0
 
     def __init__(self,length, width):
         self.length=length

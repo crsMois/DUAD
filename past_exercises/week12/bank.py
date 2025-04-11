@@ -1,24 +1,21 @@
 from abc import ABC, abstractmethod
 class BankAccount(ABC):
 
-    balance = 0
-
     def deposit_to_account(self,money):
         self.balance= self.balance+money
 
 
     @abstractmethod
     def withdraw_from_account(self,money):
-        self.balance= self.balance-money
-
+        pass
 
 
 class SavingsAccount(BankAccount):
     
-    min_balance=0
 
-    def __init__(self,min_balance):
+    def __init__(self,balance,min_balance):
         self.min_balance=min_balance
+        self.balance=balance
 
     def withdraw_from_account(self, money):
         if (self.min_balance>(self.balance-money)):
@@ -28,7 +25,7 @@ class SavingsAccount(BankAccount):
 
 
 def main():
-    account1= SavingsAccount(1000)
+    account1= SavingsAccount(1000,2000)
     account1.deposit_to_account(11000)
     account1.withdraw_from_account(9000)
     account1.withdraw_from_account(2000)
