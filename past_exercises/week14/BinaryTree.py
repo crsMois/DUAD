@@ -10,6 +10,8 @@ def pre_order_print(node):
             print(node.value)
             pre_order_print(node.left)
             pre_order_print(node.right)
+        else:
+            print("The three is empty")
 
 
 def main ():
@@ -21,7 +23,7 @@ def main ():
     root.right.left = Node("Right Left")    
     root.right.right = Node("Right Right")
 
-
+    root = None
     pre_order_print(root)
 
 main()

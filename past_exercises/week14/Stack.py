@@ -14,9 +14,13 @@ class Stack:
     def __init__(self, node):
         self.head = node
 
-    def print_Queue(self):
+    def print_Stack(self):
 
         current_node = self.head
+
+        if current_node is None:
+            print("You can not print any element of the Stack , The Stack is empty")
+
 
         while current_node is not None:
             print(current_node.data)
@@ -31,8 +35,11 @@ class Stack:
 
 
     def pop(self):
+
         if self.head is not None:
             self.head = self.head.next
+        else:
+            print("You can not pop the Stack, The Stack is empty")
 
 
 def main():
@@ -42,15 +49,19 @@ def main():
     node3 = Node("Node3 data")  
 
 
-    queue1 = Stack(node1)
-    queue1.push(node2)
-    queue1.push(node3)
-    queue1.print_Queue()
+    stack1 = Stack(node1)
+    stack1.push(node2)
+    stack1.push(node3)
+    stack1.print_Stack()
 
 
     print("Pop Stack----")
-    queue1.pop()
-    queue1.print_Queue()
+    stack1.pop()
+    stack1.pop()
+    stack1.pop()
+    stack1.print_Stack()
+    stack1.pop()
+    
 
 
 main()

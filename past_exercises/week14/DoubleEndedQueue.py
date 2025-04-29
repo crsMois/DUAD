@@ -39,6 +39,7 @@ class DoubleEndedQueue:
 
     def pop_left(self):
         if self.head is None:
+            print("There is not more nodes to remove, the Queue is empty")
             return
         elif self.head == self.tail:
             self.head= None
@@ -52,6 +53,7 @@ class DoubleEndedQueue:
 
     def pop_right(self):       
         if self.tail is None:
+            print("There is not more nodes to remove, the Queue is empty")
             return
         elif self.tail == self.head:
             self.tail = None
@@ -65,21 +67,23 @@ class DoubleEndedQueue:
 
     def print_Double_Ended_Queue (self):
         current_node = self.head
+        concatenated_ouput_string = ""
 
         while current_node is not None:
-            print (current_node.data)
+            concatenated_ouput_string= concatenated_ouput_string + f"{current_node.data} <-> "
             current_node = current_node.next
 
-
+        concatenated_ouput_string= concatenated_ouput_string + " None "
+        print(concatenated_ouput_string)
 
 def main():
-    node1 = Node("Node1 DATA")
-    node2 = Node("Node2 DATA")
-    node3 = Node("Node3 DATA")
-    node4 = Node("Node4 DATA")
-    node5 = Node("Node5 DATA")
-    node6 = Node("Node6 DATA")
-    node7 = Node("Node7 DATA")                
+    node1 = Node("Node1")
+    node2 = Node("Node2")
+    node3 = Node("Node3")
+    node4 = Node("Node4")
+    node5 = Node("Node5")
+    node6 = Node("Node6")
+    node7 = Node("Node7")                
 
     doubleEnded1 = DoubleEndedQueue()
     doubleEnded1.push_left(node1)
