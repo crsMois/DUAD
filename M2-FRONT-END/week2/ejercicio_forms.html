@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+    <title>Formulario de Votación</title>
+</head>
+<body>
+
+    <h1>Elecciones - Formulario</h1>
+
+    <form action="https://www.tse.go.cr/" method="get">
+
+    <p>
+        <label for="nombre">Nombre completo:</label><br>
+        <input type="text" id="nombre" name="nombre">
+    </p>
+
+    <p>
+        <label for="correo">Correo:</label><br>
+        <input type="email" id="correo" name="correo">
+    </p>
+
+    <p>
+        <label for="identificacion">Num. de Identificación:</label><br>
+        <input type="text" id="identificacion" name="identificacion">
+    </p>
+
+    <p>
+        <label for="telefono">Teléfono:</label><br>
+        <input type="tel" id="telefono" name="telefono">
+    </p>
+
+    <h3>Elija un candidato:</h3>
+    <label>
+        <input type="radio" name="candidato" value="c1"> Candidato #1
+    </label><br>
+    <label>
+        <input type="radio" name="candidato" value="c2"> Candidato #2
+    </label><br>
+    <label>
+        <input type="radio" name="candidato" value="c3"> Candidato #3
+    </label><br><br>
+
+    <input type="submit" value="Enviar voto">
+
+    </form>
+
+</body>
+</html>
